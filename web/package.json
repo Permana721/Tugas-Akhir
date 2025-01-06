@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npx tailwindcss -i ./src/assets/css/input.css -o ./public/css/style.css --watch\" \"vite\"",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -13,7 +13,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.5",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7",
     "vite-plugin-vue-devtools": "^7.6.8"
   }
 }
