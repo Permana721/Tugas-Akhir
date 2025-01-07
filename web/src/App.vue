@@ -1,6 +1,5 @@
 <template>
-  <!-- <router-view /> -->
-    <div class="p-11 "><p class=" text-blue-600">Hello World</p></div>
+  <router-view />
 </template>
 
 <script>
@@ -9,4 +8,4 @@ export default {
 };
 </script>
 
-<style src="../public/css/style.css"></style>
+<style src="./assets/css/style.css"></style>

@@ -1,4 +1,4 @@
-package student_controller
+package user_controller
 
 import (
 	"time"
@@ -17,12 +17,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetAllStudent(ctx *gin.Context) {
-	// Mendeklarasikan variabel students yang akan menampung data siswa
-	students := new([]models.Student)
+func GetAllUser(ctx *gin.Context) {
+	// Mendeklarasikan variabel users yang akan menampung data user
+	users := new([]models.User)
 
-	// Menarik data dari tabel students di database
-	err := database.DB.Table("students").Find(&students).Error
+	// Menarik data dari tabel users di database
+	err := database.DB.Table("users").Find(&users).Error
 
 	// Jika terjadi error dalam menarik data dari database
 	if err != nil {
@@ -35,16 +35,16 @@ func GetAllStudent(ctx *gin.Context) {
 
 	// Mengembalikan data siswa dalam bentuk JSON dengan status 200
 	ctx.JSON(200, gin.H{
-		"data": students, // Mengembalikan data siswa yang berhasil diambil
+		"data": users, // Mengembalikan data siswa yang berhasil diambil
 	})
 }
 
 
 func GetById(ctx *gin.Context) {
 	id := ctx.Param("id")
-	student := new(responses.StudentResponse)
+	user := new(responses.UserResponse)
 
-	errDb := database.DB.Table("students").Where("id = ?", id).Find(&student).Error
+	errDb := database.DB.Table("users").Where("id = ?", id).Find(&user).Error
 	if errDb != nil {
 		ctx.JSON(500, gin.H{
 			"message": "internal server error",
@@ -52,7 +52,7 @@ func GetById(ctx *gin.Context) {
 		return
 	}
 
-	if student.ID == nil {
+	if user.ID == nil {
 		ctx.JSON(http.StatusNotFound, gin.H{
 			"message": "Data not found",
 		})
@@ -61,31 +61,31 @@ func GetById(ctx *gin.Context) {
 
 	ctx.JSON(200, gin.H{
 		"message" : "data transmitted",
-		"data": student,
+		"data": user,
 	})
 }
 
 func Store(ctx *gin.Context) {
-	studentReq := new(request.StudentRequest)
+	userReq := new(request.UserRequest)
 
-	if errReq := ctx.ShouldBind(&studentReq); errReq != nil {
+	if errReq := ctx.ShouldBind(&userReq); errReq != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"message": errReq.Error(),
 		})
 		return
 	}
 
-	studentEmailExist := new(models.Student)
-	database.DB.Table("students").Where("email = ?", studentReq.Email).First(&studentEmailExist)
+	userEmailExist := new(models.User)
+	database.DB.Table("users").Where("email = ?", userReq.Email).First(&userEmailExist)
 
-	if studentEmailExist.Email != nil {
+	if userEmailExist.Email != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"message": "Email already used.",
 		})
 		return
 	}
 
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(studentReq.Password), bcrypt.DefaultCost)
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userReq.Password), bcrypt.DefaultCost)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Failed to hash password.",
@@ -93,14 +93,14 @@ func Store(ctx *gin.Context) {
 		return
 	}
 
-	students := new(models.Student)
-	students.Name = &studentReq.Name
-	students.Email = &studentReq.Email
+	users := new(models.User)
+	users.Name = &userReq.Name
+	users.Email = &userReq.Email
 	hashedPasswordStr := string(hashedPassword)
-	students.Password = &hashedPasswordStr
-	students.Age = &studentReq.Age
+	users.Password = &hashedPasswordStr
+	users.Age = &userReq.Age
 
-	errDb := database.DB.Table("students").Create(&students).Error
+	errDb := database.DB.Table("users").Create(&users).Error
 	if errDb != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Can't create data.",
@@ -110,26 +110,26 @@ func Store(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "Data Successfully Created",
-		"data": students,
+		"data": users,
 	})
 }
 
 func Update(ctx *gin.Context) {
 	id := ctx.Param("id")
-	student := new(models.Student)
-	studentReq := new(request.StudentRequest)
-	studentEmailExist := new(models.Student)
+	user := new(models.User)
+	userReq := new(request.UserRequest)
+	userEmailExist := new(models.User)
 
 	// Bind data dari request ke struct
-	if errReq := ctx.ShouldBind(&studentReq); errReq != nil {
+	if errReq := ctx.ShouldBind(&userReq); errReq != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"message": errReq.Error(),
 		})
 		return
 	}
 
-	// Cek apakah data student dengan ID yang diberikan ada
-	errDb := database.DB.Table("students").Where("id = ?", id).Find(&student).Error
+	// Cek apakah data user dengan ID yang diberikan ada
+	errDb := database.DB.Table("users").Where("id = ?", id).Find(&user).Error
 	if errDb != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Internal server error",
@@ -137,7 +137,7 @@ func Update(ctx *gin.Context) {
 		return
 	}
 
-	if student.ID == nil {
+	if user.ID == nil {
 		ctx.JSON(http.StatusNotFound, gin.H{
 			"message": "Data not found",
 		})
@@ -145,15 +145,15 @@ func Update(ctx *gin.Context) {
 	}
 
 	// Cek apakah email sudah digunakan oleh user lain
-	errStudentEmailExist := database.DB.Table("students").Where("email = ?", studentReq.Email).Find(&studentEmailExist).Error
-	if errStudentEmailExist != nil {
+	erruserEmailExist := database.DB.Table("users").Where("email = ?", userReq.Email).Find(&userEmailExist).Error
+	if erruserEmailExist != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Internal server error",
 		})
 		return
 	}
 
-	if studentEmailExist.Email != nil && *student.ID != *studentEmailExist.ID {
+	if userEmailExist.Email != nil && *user.ID != *userEmailExist.ID {
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"message": "Email already used",
 		})
@@ -161,8 +161,8 @@ func Update(ctx *gin.Context) {
 	}
 
 	// Jika password diisi, hash password baru
-	if studentReq.Password != "" {
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(studentReq.Password), bcrypt.DefaultCost)
+	if userReq.Password != "" {
+		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userReq.Password), bcrypt.DefaultCost)
 		if err != nil {
 			ctx.JSON(http.StatusInternalServerError, gin.H{
 				"message": "Failed to hash password",
@@ -170,15 +170,15 @@ func Update(ctx *gin.Context) {
 			return
 		}
 		hashedPasswordStr := string(hashedPassword)
-		student.Password = &hashedPasswordStr
+		user.Password = &hashedPasswordStr
 	}
 
-	// Update data student
-	student.Name = &studentReq.Name
-	student.Email = &studentReq.Email
-	student.Age = &studentReq.Age
+	// Update data user
+	user.Name = &userReq.Name
+	user.Email = &userReq.Email
+	user.Age = &userReq.Age
 
-	errUpdate := database.DB.Table("students").Where("id = ?", id).Updates(&student).Error
+	errUpdate := database.DB.Table("users").Where("id = ?", id).Updates(&user).Error
 	if errUpdate != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Can't update data",
@@ -188,16 +188,16 @@ func Update(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "Data updated successfully",
-		"data":    student,
+		"data":    user,
 	})
 }
 
 
 func Delete(ctx *gin.Context) {
     id := ctx.Param("id")
-    student := new(models.Student)
+    user := new(models.User)
 
-    result := database.DB.Table("students").Where("id = ?", id).Find(&student)
+    result := database.DB.Table("users").Where("id = ?", id).Find(&user)
     if result.Error != nil {
         ctx.JSON(500, gin.H{
             "message": "internal server error",
@@ -211,7 +211,7 @@ func Delete(ctx *gin.Context) {
         return
     }
 
-    errDb := database.DB.Table("students").Where("id = ?", id).Delete(&models.Student{}).Error
+    errDb := database.DB.Table("users").Where("id = ?", id).Delete(&models.User{}).Error
     if errDb != nil {
         ctx.JSON(500, gin.H{
             "message": "internal server error",
@@ -240,8 +240,8 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	user := new(models.Student)
-	err := database.DB.Table("students").Where("email = ?", loginReq.Email).First(&user).Error
+	user := new(models.User)
+	err := database.DB.Table("users").Where("email = ?", loginReq.Email).First(&user).Error
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{
 			"message": "Invalid email or password",
