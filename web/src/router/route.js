@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../pages/DashboardPage.vue';
-// import Login from '../pages/LoginPage.vue';
+import Login from '../auth/Login.vue';
+import Register from '../auth/Register.vue';
 
 const routes = [
-    { path: '/', redirect: '/dashboard' }, // Redirect ke dashboard langsung
+    { path: '/', redirect: '/dashboard' }, 
     { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard' } },
-    // { path: '/login', name: 'Login', component: Login, meta: { title: 'Login' } },
+    { path: '/login', name: 'Login', component: Login, meta: { title: 'Login' } },
+    { path: '/register', name: 'Register', component: Register, meta: { title: 'Register' } },
 ];
 
 const router = createRouter({
@@ -14,14 +16,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    // Set title untuk setiap halaman
     if (to.meta.title) {
         document.title = to.meta.title;
     } else {
         document.title = 'Default Title';
     }
 
-    next(); // Hilangkan cek login agar semua halaman bisa diakses
+    next();
 });
 
 export default router;

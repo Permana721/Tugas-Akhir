@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+    <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
@@ -46,9 +46,9 @@
                 </div>
         
                 <div class="hidden md:block">
-                    <a href="#" class="text-purple-600 px-4 py-2 rounded-md border border-purple-700">
+                    <RouterLink to="/login" class="text-purple-600 px-4 py-2 rounded-md border border-purple-700">
                     Masuk
-                    </a>
+                    </RouterLink>
                 </div>
             </div>
         </div>
