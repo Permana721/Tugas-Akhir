@@ -37,12 +37,11 @@
                 </div>
         
                 <div class="hidden md:flex md:items-center space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Blog</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Diet</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Rencana</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Makan</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Resep</a>
-                    <a href="#" class="text-gray-600 hover:text-purple-600 font-medium p-2">Produk</a>
+                    <RouterLink to="/blog" class="text-gray-600 hover:text-purple-600 font-medium p-2">Blog</RouterLink>
+                    <RouterLink to="/diet" class="text-gray-600 hover:text-purple-600 font-medium p-2">Diet</RouterLink>
+                    <RouterLink to="/plan" class="text-gray-600 hover:text-purple-600 font-medium p-2">Rencana</RouterLink>
+                    <RouterLink to="/food" class="text-gray-600 hover:text-purple-600 font-medium p-2">Makanan</RouterLink>
+                    <RouterLink to="/recipe" class="text-gray-600 hover:text-purple-600 font-medium p-2">Resep</RouterLink>
                 </div>
         
                 <div class="hidden md:block">
@@ -58,12 +57,11 @@
                 class="bg-purple-600 text-white fixed top-20 left-0 w-full h-1/2 z-40"
             >
                 <div class="flex flex-col items-center justify-center h-full space-y-4">
-                    <a href="#" class="text-xl font-medium">Blog</a>
-                    <a href="#" class="text-xl font-medium">Diet</a>
-                    <a href="#" class="text-xl font-medium">Rencana</a>
-                    <a href="#" class="text-xl font-medium">Makan</a>
-                    <a href="#" class="text-xl font-medium">Resep</a>
-                    <a href="#" class="text-xl font-medium">Produk</a>
+                    <RouterLink to="/blog" class="text-xl font-medium">Blog</RouterLink>
+                    <RouterLink to="/diet" class="text-xl font-medium">Diet</RouterLink>
+                    <RouterLink to="/plan" class="text-xl font-medium">Rencana</RouterLink>
+                    <RouterLink to="/food" class="text-xl font-medium">Makanan</RouterLink>
+                    <RouterLink to="/recipe" class="text-xl font-medium">Resep</RouterLink>
                     <RouterLink to="/login" class="bg-white text-purple-600 px-4 py-2 rounded-md font-bold border border-white">
                         Masuk
                     </RouterLink>
