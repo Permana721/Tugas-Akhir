@@ -64,9 +64,9 @@
                     <a href="#" class="text-xl font-medium">Makan</a>
                     <a href="#" class="text-xl font-medium">Resep</a>
                     <a href="#" class="text-xl font-medium">Produk</a>
-                    <a href="#" class="bg-white text-purple-600 px-4 py-2 rounded-md font-bold border border-white">
+                    <RouterLink to="/login" class="bg-white text-purple-600 px-4 py-2 rounded-md font-bold border border-white">
                         Masuk
-                    </a>
+                    </RouterLink>
                 </div>
             </div>
         </transition>
