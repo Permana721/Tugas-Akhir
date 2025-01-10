@@ -3,10 +3,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
-                    <img src="https://via.placeholder.com/40" alt="Logo" class="h-8 w-8 mr-2">
-                    <span class="text-xl font-extrabold">YNKTS</span>
+                    <RouterLink to="/dashboard">
+                        <img src="/img/icon/logo.png" alt="Logo" class="w-40">
+                    </RouterLink>
                 </div>
-        
                 <div class="md:hidden">
                     <button
                     @click="toggleMenu"
@@ -36,7 +36,7 @@
                     </button>
                 </div>
         
-                <div class="hidden md:flex md:items-center space-x-4">
+                <div class="hidden md:flex md:items-center justify-center text-center mr-16 space-x-8">
                     <RouterLink to="/blog" class="text-gray-600 hover:text-purple-600 font-medium p-2">Blog</RouterLink>
                     <RouterLink to="/diet" class="text-gray-600 hover:text-purple-600 font-medium p-2">Diet</RouterLink>
                     <RouterLink to="/plan" class="text-gray-600 hover:text-purple-600 font-medium p-2">Rencana</RouterLink>

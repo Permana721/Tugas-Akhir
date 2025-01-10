@@ -1,7 +1,12 @@
 <template>
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow h-screen md:h-auto">
-      <h1 class="text-2xl font-bold text-center mb-6">FUFUFAFA</h1>
+      <!-- <h1 class="text-2xl font-bold text-center mb-6">FUFUFAFA</h1> -->
+      <div class="flex justify-center items-center">
+          <RouterLink to="/dashboard">
+              <img src="/img/icon/logo.png" alt="Logo" class="w-56 mb-8">
+          </RouterLink>
+      </div>
       <form>
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
