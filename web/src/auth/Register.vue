@@ -1,9 +1,8 @@
 <template>
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow">
-      <!-- <h1 class="text-2xl font-bold text-center mb-6">FUFUFAFA</h1> -->
       <div class="flex justify-center items-center">
-          <RouterLink to="/dashboard">
+          <RouterLink to="/">
               <img src="/img/icon/logo.png" alt="Logo" class="w-56 mb-8">
           </RouterLink>
       </div>
@@ -15,7 +14,7 @@
           <label class="block text-sm font-medium text-gray-700" for="gender">Jenis Kelamin</label>
           <select
             id="gender"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option>Laki-laki</option>
             <option>Perempuan</option>
@@ -26,7 +25,7 @@
           <input
             id="weight"
             type="number"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Berat Badan"
           />
         </div>
@@ -35,7 +34,7 @@
           <input
             id="height"
             type="number"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Tinggi"
           />
         </div>
@@ -44,14 +43,14 @@
           <input
             id="birthdate"
             type="date"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700" for="activity-level">Tingkat Aktivitas*</label>
           <select
             id="activity-level"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option>Jarang Sekali</option>
             <option>Sedikit Aktif</option>
@@ -67,7 +66,7 @@
           <input
             id="diet-goal"
             type="text"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Contoh: Menurunkan berat badan"
           />
         </div>
@@ -76,7 +75,7 @@
           <input
             id="weight-goal"
             type="number"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Tujuan Berat Badan"
           />
         </div>
@@ -88,7 +87,7 @@
           <input
             id="username"
             type="text"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Nama Anggota"
           />
         </div>
@@ -97,7 +96,7 @@
           <input
             id="email"
             type="email"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Email"
           />
         </div>
@@ -106,7 +105,7 @@
           <input
             id="password"
             type="password"
-            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Kata Sandi"
           />
         </div>
@@ -114,15 +113,15 @@
         <!-- Submit Button -->
         <button
           type="submit"
-          class="w-full px-4 py-2 text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          class="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          Register
+          Daftar
         </button>
       </form>
 
       <!-- Social Media Buttons -->
       <div class="mt-6 text-center">
-        <p class="text-sm text-gray-600 mb-4">Or sign in with</p>
+        <p class="text-sm text-gray-600 mb-4">Atau masuk dengan</p>
         <div class="flex justify-center space-x-4">
           <button class="p-2 bg-gray-100 rounded-lg shadow hover:bg-gray-200 focus:outline-none">
             <img src="/img/icon/facebook.png" alt="Facebook" class="w-6 h-6" />
@@ -138,7 +137,7 @@
 
       <!-- Already have an account -->
       <p class="mt-6 text-sm text-center text-gray-600">
-        Already have an account? <RouterLink to="/login" class="text-purple-600 hover:underline">Sign in</RouterLink>
+        Sudah punya akun? <RouterLink to="/login" class="text-blue-600 hover:underline">Masuk</RouterLink>
       </p>
     </div>
   </div>

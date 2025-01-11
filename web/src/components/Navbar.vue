@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
-                    <RouterLink to="/dashboard">
+                    <RouterLink to="/">
                         <img src="/img/icon/logo.png" alt="Logo" class="w-40">
                     </RouterLink>
                 </div>
@@ -15,7 +15,7 @@
                     >
                     <svg
                         v-if="!menuOpen"
-                        class="w-8 h-8 text-purple-600"
+                        class="w-8 h-8 text-blue-600"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -25,7 +25,7 @@
                     </svg>
                     <svg
                         v-else
-                        class="w-8 h-8 text-purple-600"
+                        class="w-8 h-8 text-blue-600"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -37,15 +37,15 @@
                 </div>
         
                 <div class="hidden md:flex md:items-center justify-center text-center mr-16 space-x-8">
-                    <RouterLink to="/blog" class="text-gray-600 hover:text-purple-600 font-medium p-2">Blog</RouterLink>
-                    <RouterLink to="/diet" class="text-gray-600 hover:text-purple-600 font-medium p-2">Diet</RouterLink>
-                    <RouterLink to="/plan" class="text-gray-600 hover:text-purple-600 font-medium p-2">Rencana</RouterLink>
-                    <RouterLink to="/food" class="text-gray-600 hover:text-purple-600 font-medium p-2">Makanan</RouterLink>
-                    <RouterLink to="/recipe" class="text-gray-600 hover:text-purple-600 font-medium p-2">Resep</RouterLink>
+                    <RouterLink to="/blog" class="text-gray-600 hover:text-blue-600 font-medium p-2">Blog</RouterLink>
+                    <RouterLink to="/diet" class="text-gray-600 hover:text-blue-600 font-medium p-2">Diet</RouterLink>
+                    <RouterLink to="/plan" class="text-gray-600 hover:text-blue-600 font-medium p-2">Rencana</RouterLink>
+                    <RouterLink to="/food" class="text-gray-600 hover:text-blue-600 font-medium p-2">Makanan</RouterLink>
+                    <RouterLink to="/recipe" class="text-gray-600 hover:text-blue-600 font-medium p-2">Resep</RouterLink>
                 </div>
         
                 <div class="hidden md:block">
-                    <RouterLink to="/login" class="text-purple-600 px-4 py-2 rounded-md border border-purple-700">
+                    <RouterLink to="/login" class="text-blue-600 px-4 py-2 rounded-md border border-blue-700">
                     Masuk
                     </RouterLink>
                 </div>
@@ -54,7 +54,7 @@
         <transition name="slide-down">
             <div
                 v-if="menuOpen"
-                class="bg-purple-600 text-white fixed top-20 left-0 w-full h-1/2 z-40"
+                class="bg-blue-600 text-white fixed top-20 left-0 w-full h-1/2 z-40"
             >
                 <div class="flex flex-col items-center justify-center h-full space-y-4">
                     <RouterLink to="/blog" class="text-xl font-medium">Blog</RouterLink>
@@ -62,7 +62,7 @@
                     <RouterLink to="/plan" class="text-xl font-medium">Rencana</RouterLink>
                     <RouterLink to="/food" class="text-xl font-medium">Makanan</RouterLink>
                     <RouterLink to="/recipe" class="text-xl font-medium">Resep</RouterLink>
-                    <RouterLink to="/login" class="bg-white text-purple-600 px-4 py-2 rounded-md font-bold border border-white">
+                    <RouterLink to="/login" class="bg-white text-blue-600 px-4 py-2 rounded-md font-bold border border-white">
                         Masuk
                     </RouterLink>
                 </div>
