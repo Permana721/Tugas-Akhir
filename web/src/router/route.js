@@ -9,9 +9,9 @@ import Recipe from '../pages/Recipe/RecipePage.vue';
 import Register from '../auth/Register.vue';
 
 const routes = [
-    { path: '/', redirect: '/dashboard' }, 
+    // { path: '/', redirect: '/dashboard' }, 
+    { path: '/', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard - FUFUFAFA' } },
     { path: '/blog', name: 'Blog', component: Blog, meta: { title: 'Blog' } },
-    { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard' } },
     { path: '/diet', name: 'Diet', component: Diet, meta: { title: 'Diet' } },
     { path: '/plan', name: 'Plan', component: Plan, meta: { title: 'Rencana' } },
     { path: '/food', name: 'Food', component: Food, meta: { title: 'Makanan' } },
