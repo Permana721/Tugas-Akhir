@@ -7,11 +7,11 @@
                     Pola makan baik pangkal tubuh sehat.
                 </h1>
                 <p class="text-lg text-gray-600 mb-6">
-                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan MyFitnessPal.
+                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan FUFUFAFA.
                 </p>
-                <button class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
+                <RouterLink to="/login" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
                     Mulai dengan gratis
-                </button>
+                </RouterLink>
             </div>
             <div class="mt-8 md:mt-0 md:ml-10">
                 <img src="/img/background/background.png" alt="Healthy Meal" class="w-full max-w-md rounded-lg"/>
@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="bg-white py-12 px-6">
             <div class="max-w-4xl mx-auto text-center">
@@ -85,27 +84,27 @@
                 </p>
             </div>
             <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="/img/background/menu-diet.jpeg" alt="Semangkuk oatmeal dengan kranberi" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">15 Sarapan Cepat di Bawah 300 Kalori</h3>
                         <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
                     </div>
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                </RouterLink>
+                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="/img/background/naspad.png" alt="Pengaturan berbagai cheat meal" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Masalah Cheat Day</h3>
                         <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
                     </div>
-                </div>
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                </RouterLink>
+                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="/img/background/jogging.jpg" alt="Seorang wanita jogging di kota" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Panduan Penting agar Tetap Bergerak</h3>
                         <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
                     </div>
-                </div>
+                </RouterLink>
             </div>
         </div>
 
@@ -138,6 +137,7 @@
 <script>
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
+// import { RouterLink } from 'vue-router';
 
 export default {
     components: {

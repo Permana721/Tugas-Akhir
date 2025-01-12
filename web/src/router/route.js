@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../pages/DashboardPage.vue';
 import Login from '../auth/Login.vue';
-import Blog from '../pages/Blog/BlogPage.vue';
-import Diet from '../pages/Diet/DietPage.vue';
-import Plan from '../pages/Plan/PlanPage.vue';
-import Food from '../pages/Food/FoodPage.vue';
-import Recipe from '../pages/Recipe/RecipePage.vue';
+import Blog from '../pages/user/blog/BlogPage.vue';
+import Diet from '../pages/user/diet/DietPage.vue';
+import Plan from '../pages/user/plan/PlanPage.vue';
+import Food from '../pages/user/food/FoodPage.vue';
+import Recipe from '../pages/user/recipe/RecipePage.vue';
 import Register from '../auth/Register.vue';
+
 
 const routes = [
     // { path: '/', redirect: '/dashboard' }, 
