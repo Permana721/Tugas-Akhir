@@ -1,9 +1,9 @@
 <template>
-    <footer class="bg-gray-100 text-gray-400 py-8">
+    <footer class=" bg-white shadow-2xl text-gray-400 py-8">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+            <RouterLink to="/" class="flex items-center space-x-2 mb-4 md:mb-0">
                 <img src="/img/icon/logo.png" alt="My Diet Coach Logo" class="w-40" />
-            </div>
+            </RouterLink>
     
             <nav class="flex space-x-6 text-black text-sm">
                 <RouterLink to="/" class=" hover:text-blue-600 duration-300">Home</RouterLink>
