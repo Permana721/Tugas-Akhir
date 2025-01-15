@@ -12,11 +12,11 @@ import Register from '../auth/Register.vue';
 const routes = [
     // { path: '/', redirect: '/dashboard' }, 
     { path: '/', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard - FUFUFAFA' } },
-    { path: '/blog', name: 'Blog', component: Blog, meta: { title: 'Blog' } },
-    { path: '/diet', name: 'Diet', component: Diet, meta: { title: 'Diet' } },
-    { path: '/plan', name: 'Plan', component: Plan, meta: { title: 'Rencana' } },
-    { path: '/food', name: 'Food', component: Food, meta: { title: 'Makanan' } },
-    { path: '/recipe', name: 'Recipe', component: Recipe, meta: { title: 'Recipe' } },
+    { path: '/blog', name: 'Blog', component: Blog, meta: { title: 'Blog - FUFUFAFA' } },
+    { path: '/diet', name: 'Diet', component: Diet, meta: { title: 'Diet - FUFUFAFA' } },
+    { path: '/plan', name: 'Plan', component: Plan, meta: { title: 'Rencana - FUFUFAFA' } },
+    { path: '/food', name: 'Food', component: Food, meta: { title: 'Makanan - FUFUFAFA' } },
+    { path: '/recipe', name: 'Recipe', component: Recipe, meta: { title: 'Recipe - FUFUFAFA' } },
 
     { path: '/login', name: 'Login', component: Login, meta: { title: 'Login' } },
     { path: '/register', name: 'Register', component: Register, meta: { title: 'Register' } },
