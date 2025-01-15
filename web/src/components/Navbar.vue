@@ -37,11 +37,21 @@
                 </div>
         
                 <div class="hidden md:flex md:items-center justify-center text-center mr-16 space-x-8">
-                    <RouterLink to="/blog" class="text-gray-600 hover:text-blue-600 font-medium p-2">Blog</RouterLink>
-                    <RouterLink to="/diet" class="text-gray-600 hover:text-blue-600 font-medium p-2">Diet</RouterLink>
-                    <RouterLink to="/plan" class="text-gray-600 hover:text-blue-600 font-medium p-2">Rencana</RouterLink>
-                    <RouterLink to="/food" class="text-gray-600 hover:text-blue-600 font-medium p-2">Makanan</RouterLink>
-                    <RouterLink to="/recipe" class="text-gray-600 hover:text-blue-600 font-medium p-2">Resep</RouterLink>
+                    <RouterLink to="/blog" :class="{'text-blue-600 font-semibold': $route.path === '/blog', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/blog'}" class="p-2">
+                    Blog
+                    </RouterLink>
+                    <RouterLink to="/diet" :class="{'text-blue-600 font-semibold': $route.path === '/diet', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/diet'}" class="p-2">
+                    Diet
+                    </RouterLink>
+                    <RouterLink to="/plan" :class="{'text-blue-600 font-semibold': $route.path === '/plan', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/plan'}" class="p-2">
+                    Rencana
+                    </RouterLink>
+                    <RouterLink to="/food" :class="{'text-blue-600 font-semibold': $route.path === '/food', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/food'}" class="p-2">
+                    Makanan
+                    </RouterLink>
+                    <RouterLink to="/recipe" :class="{'text-blue-600 font-semibold': $route.path === '/recipe', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/recipe'}" class="p-2">
+                    Resep
+                    </RouterLink>
                 </div>
         
                 <div class="hidden md:block">
