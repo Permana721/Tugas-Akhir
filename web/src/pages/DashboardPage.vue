@@ -36,9 +36,10 @@
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Alat untuk Target Anda</h2>
                 <p class="text-gray-600 text-lg mb-8">
-                    Ingin menurunkan berat badan, meningkatkan kebugaran, menurunkan BMI, atau memulai pola hidup sehat? Kami punya fitur yang tepat untuk membantu Anda mewujudkannya.
+                Ingin menurunkan berat badan, meningkatkan kebugaran, menurunkan BMI, atau memulai pola hidup sehat? Kami punya fitur yang tepat untuk membantu Anda mewujudkannya.
                 </p>
             </div>
+
             <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
                 <div>
                     <div class="flex justify-center mb-4">
@@ -51,28 +52,30 @@
                         Menyimpan buku harian makanan Anda akan membantu memahami kebiasaan Anda dan memperbesar kemungkinan Anda mendapatkan tujuan Anda.
                     </p>
                 </div>
-            <div>
-                <div class="flex justify-center mb-4">
-                    <div class="bg-blue-100 p-4 rounded-full">
-                        <img src="/img/icon/scanner.png" alt="Kode Batang" class="w-12 h-12" />
+
+                <div>
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-blue-100 p-4 rounded-full">
+                            <img src="/img/icon/calculator.png" alt="Kalkulator BMI" class="w-12 h-12" />
+                        </div>
                     </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Kalkulator BMI</h3>
+                    <p class="text-gray-600">
+                        Gunakan kalkulator BMI untuk mengetahui indeks massa tubuh Anda dan memahami apakah berat badan Anda ideal, kurang, atau berlebih.
+                    </p>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Pencatatan jadi lebih mudah.</h3>
-                <p class="text-gray-600">
-                    Pindai barcode, simpan makanan dan resep, dan gunakan Alat Cepat untuk pelacakan makanan yang cepat dan mudah.
-                </p>
-            </div>
-            <div>
-                <div class="flex justify-center mb-4">
-                    <div class="bg-blue-100 p-4 rounded-full">
-                        <img src="/img/icon/sneakers.png" alt="Sepatu" class="w-12 h-12" />
+
+                <div>
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-blue-100 p-4 rounded-full">
+                            <img src="/img/icon/programs.png" alt="Program Olahraga" class="w-12 h-12 ml-2" />
+                        </div>
                     </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Program Olahraga</h3>
+                    <p class="text-gray-600">
+                        Pilih program olahraga sesuai kebutuhan Anda: turunkan berat badan, tambah massa otot, atau jaga berat ideal dengan panduan latihan dan rekomendasi nutrisi.
+                    </p>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">Tetap Termotivasi.</h3>
-                <p class="text-gray-600">
-                    Bergabung dengan Komunitas Fitness Terbesar di Dunia untuk mendapatkan saran, kiat, dan dukungan 24/7.
-                </p>
-            </div>
             </div>
         </div>
 
