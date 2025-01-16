@@ -7,7 +7,7 @@
 
         <div class="max-w-3xl mx-auto grid gap-8 px-4 sm:px-6 lg:px-8">
             <RouterLink to="/blog" class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="/img/blog/nasi.png" alt="Apakah Nasi Adalah Penyebab Gagal Diet?" class="w-full"/>
+                <img src="/img/background/nasi.png" alt="Apakah Nasi Adalah Penyebab Gagal Diet?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
                         Diet & Nutrition
@@ -28,7 +28,7 @@
             </RouterLink>
 
             <RouterLink to="/blog" class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="/img/blog/roti-nasi.jpg" alt="Apakah Roti Lebih Sehat Daripada Nasi?" class="w-full"/>
+                <img src="/img/background/roti-nasi.jpg" alt="Apakah Roti Lebih Sehat Daripada Nasi?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
                     Nutrition
@@ -49,7 +49,7 @@
             </RouterLink>
 
             <RouterLink to="/blog" class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="/img/blog/olahraga.jpg" alt="Jika Ingin Sehat, Apakah Wajib Olahraga?" class="w-full"/>
+                <img src="/img/background/olahraga.jpg" alt="Jika Ingin Sehat, Apakah Wajib Olahraga?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
                         Health & Fitness
