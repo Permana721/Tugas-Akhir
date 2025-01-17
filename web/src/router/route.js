@@ -1,22 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../pages/DashboardPage.vue';
 import Login from '../auth/Login.vue';
-import Blog from '../pages/user/blog/BlogPage.vue';
-import Diet from '../pages/user/diet/DietPage.vue';
-import Plan from '../pages/user/plan/PlanPage.vue';
-import Food from '../pages/user/food/FoodPage.vue';
-import Recipe from '../pages/user/recipe/RecipePage.vue';
+import Blog from '../pages/user/blogs/DashboardBlog.vue';
+import Program from '../pages/user/programs/ProgramPage.vue';
+import Sport from '../pages/user/sports/SportPage.vue';
+import Food from '../pages/user/foods/FoodPage.vue';
+import Recipe from '../pages/user/recipes/RecipePage.vue';
+import BlogPage from '../pages/user/blogs/BlogPage.vue';
 import Register from '../auth/Register.vue';
 
 
 const routes = [
     // { path: '/', redirect: '/dashboard' }, 
-    { path: '/', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard - FUFUFAFA' } },
-    { path: '/blog', name: 'Blog', component: Blog, meta: { title: 'Blog - FUFUFAFA' } },
-    { path: '/diet', name: 'Diet', component: Diet, meta: { title: 'Diet - FUFUFAFA' } },
-    { path: '/plan', name: 'Plan', component: Plan, meta: { title: 'Rencana - FUFUFAFA' } },
-    { path: '/food', name: 'Food', component: Food, meta: { title: 'Makanan - FUFUFAFA' } },
-    { path: '/recipe', name: 'Recipe', component: Recipe, meta: { title: 'Recipe - FUFUFAFA' } },
+    { path: '/', name: 'Dashboard', component: Dashboard, meta: { title: 'Dashboard - IP-CORP' } },
+    { path: '/blog', name: 'Blog', component: Blog, meta: { title: 'Blog - IP-CORP' } },
+    { path: '/blog-info', name: 'BlogPage', component: BlogPage, meta: { title: 'Blog-Info - IP-CORP' } },
+    { path: '/sport', name: 'Sport', component: Sport, meta: { title: 'Sport - IP-CORP' } },
+    { path: '/program', name: 'Program', component: Program, meta: { title: 'Program - IP-CORP' } },
+    { path: '/food', name: 'Food', component: Food, meta: { title: 'Makanan - IP-CORP' } },
+    { path: '/recipe', name: 'Recipe', component: Recipe, meta: { title: 'Recipe - IP-CORP' } },
 
     { path: '/login', name: 'Login', component: Login, meta: { title: 'Login' } },
     { path: '/register', name: 'Register', component: Register, meta: { title: 'Register' } },
