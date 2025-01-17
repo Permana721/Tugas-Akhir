@@ -3,7 +3,7 @@
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow">
       <div class="flex justify-center items-center">
           <RouterLink to="/">
-              <img src="/img/icon/logo.png" alt="Logo" class="w-56 mb-8">
+              <img src="/img/icon/logos.png" alt="Logo" class="w-56 mb-8">
           </RouterLink>
       </div>
 
@@ -80,8 +80,8 @@
           />
         </div>
 
-        <!-- Akun FUFUFAFA -->
-        <h2 class="text-lg font-semibold text-gray-700 mb-4 mt-8">Akun FUFUFAFA</h2>
+        <!-- Akun IP-CORP -->
+        <h2 class="text-lg font-semibold text-gray-700 mb-4 mt-8">Akun IP-CORP</h2>
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700" for="username">Nama Anggota</label>
           <input

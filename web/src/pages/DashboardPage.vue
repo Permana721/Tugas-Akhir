@@ -7,7 +7,7 @@
                     Pola makan baik pangkal tubuh sehat.
                 </h1>
                 <p class="text-lg text-gray-600 mb-6">
-                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan FUFUFAFA.
+                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan I-CORP.
                 </p>
                 <RouterLink to="/login" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
                     Mulai dengan gratis
@@ -24,7 +24,7 @@
                     <img src="/img/background/blueberry.png" alt="Blueberries" class="absolute inset-0 w-full h-full object-cover" />
                 </div>
                 <div class="mt-10 text-center md:text-left">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Catat lebih dari 14 juta makanan.</h2>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Catat lebih banyak makanan.</h2>
                     <p class="text-lg text-gray-600">
                         Lihat perincian kalori dan nutrisi, bandingkan ukuran porsi, dan lihat bagaimana makanan yang Anda makan mewujudkan tujuan Anda.
                     </p>
@@ -91,21 +91,21 @@
                     <img src="/img/background/menu-diet.jpeg" alt="Semangkuk oatmeal dengan kranberi" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">15 Sarapan Cepat di Bawah 300 Kalori</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
+                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
                     </div>
                 </RouterLink>
                 <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="/img/background/naspad.png" alt="Pengaturan berbagai cheat meal" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Masalah Cheat Day</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
+                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
                     </div>
                 </RouterLink>
                 <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
                     <img src="/img/background/jogging.jpg" alt="Seorang wanita jogging di kota" class="w-full h-40 object-cover" />
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Panduan Penting agar Tetap Bergerak</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog FUFUFAFA</a>
+                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
                     </div>
                 </RouterLink>
             </div>
@@ -113,7 +113,7 @@
 
         <div class="px-6 py-12">
             <div class="text-center max-w-4xl mx-auto mb-10">
-                <h1 class="text-4xl font-bold text-gray-800 mb-4">Jelajahi FUFUFAFA</h1>
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Jelajahi IP-CORP</h1>
             </div>
 
             <div class="relative bg-white rounded-lg shadow-lg mx-auto max-w-6xl p-8 md:p-16 lg:p-40 overflow-hidden">

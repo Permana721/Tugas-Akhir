@@ -3,7 +3,7 @@
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow h-screen md:h-auto">
       <div class="flex justify-center items-center">
           <RouterLink to="/">
-              <img src="/img/icon/logo.png" alt="Logo" class="w-56 mb-8">
+              <img src="/img/icon/logos.png" alt="Logo" class="w-56 mb-8">
           </RouterLink>
       </div>
       <form>

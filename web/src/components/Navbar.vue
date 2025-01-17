@@ -4,7 +4,7 @@
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
                     <RouterLink to="/">
-                        <img src="/img/icon/logo.png" alt="Logo" class="w-40">
+                        <img src="/img/icon/logos.png" alt="Logo" class="w-40">
                     </RouterLink>
                 </div>
                 <div class="md:hidden">
@@ -40,14 +40,14 @@
                     <RouterLink to="/blog" :class="{'text-blue-600 font-semibold': $route.path === '/blog', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/blog'}" class="p-2">
                     Blog
                     </RouterLink>
-                    <RouterLink to="/diet" :class="{'text-blue-600 font-semibold': $route.path === '/diet', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/diet'}" class="p-2">
-                    Diet
-                    </RouterLink>
-                    <RouterLink to="/plan" :class="{'text-blue-600 font-semibold': $route.path === '/plan', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/plan'}" class="p-2">
-                    Rencana
+                    <RouterLink to="/program" :class="{'text-blue-600 font-semibold': $route.path === '/program', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/program'}" class="p-2">
+                    Program
                     </RouterLink>
                     <RouterLink to="/food" :class="{'text-blue-600 font-semibold': $route.path === '/food', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/food'}" class="p-2">
                     Makanan
+                    </RouterLink>
+                    <RouterLink to="/sport" :class="{'text-blue-600 font-semibold': $route.path === '/sport', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/sport'}" class="p-2">
+                    Kebugaran
                     </RouterLink>
                     <RouterLink to="/recipe" :class="{'text-blue-600 font-semibold': $route.path === '/recipe', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/recipe'}" class="p-2">
                     Resep
