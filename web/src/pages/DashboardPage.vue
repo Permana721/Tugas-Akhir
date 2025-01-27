@@ -1,5 +1,27 @@
 <template>
-    <Navbar />
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <RouterLink to="/">
+                        <img src="/img/icon/logos.png" alt="Logo" class="w-40">
+                    </RouterLink>
+                </div>
+                <div class="md:hidden">
+                    <RouterLink to="/login" class="px-4 py-2 text-blue-600 font-bold">
+                        Masuk
+                    </RouterLink>
+                </div>
+        
+                <div class="hidden md:block">
+                    <RouterLink to="/login" class="text-blue-600 px-4 py-2 rounded-md font-bold">
+                    Masuk
+                    </RouterLink>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div>
         <div class="flex-1 pt-28 flex flex-col items-center px-6 py-12 md:flex-row md:justify-center md:gap-10">
             <div class="text-center md:text-left md:max-w-md">
@@ -134,18 +156,71 @@
             </div>
         </div>
     </div>
-    <Footer />
+    
+    <footer class=" bg-white shadow-2xl text-gray-400 py-8 z-50">
+        <div class="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto flex flex-col md:flex-row justify-between items-center">
+            <RouterLink to="/" class="flex items-center space-x-2 mb-4 md:mb-0">
+                <img src="/img/icon/logos.png" alt="My Diet Coach Logo" class="w-40" />
+            </RouterLink>
+    
+            <nav class="flex space-x-6 text-black text-sm">
+                <RouterLink to="/" class=" hover:text-blue-600 duration-300">Home</RouterLink>
+                <RouterLink to="" class="hover:text-blue-600 duration-300">About</RouterLink>
+                <RouterLink to="" class="hover:text-blue-600 duration-300">Contact Us</RouterLink>
+                </nav>
+        </div>
+    
+        <div class="mt-8 text-center border-t border-gray-700 pt-4">
+            <p class="text-sm">
+            © {{ currentYear }} IP-CORP - All rights reserved
+            </p>
+        </div>
+    </footer>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
-import Footer from '../components/Footer.vue';
-// import { RouterLink } from 'vue-router';
-
-export default {
-    components: {
-        Navbar,
-        Footer,
-    },
-};
+    export default {
+        data() {
+            return {
+            menuOpen: false, 
+            currentYear: new Date().getFullYear(),
+            };
+        },
+        methods: {
+            toggleMenu() {
+            this.menuOpen = !this.menuOpen;
+            },
+        },
+    };
 </script>
+
+<style>
+.slide-down-enter-active {
+animation: slide-down 0.5s ease-out forwards;
+}
+.slide-down-leave-active {
+animation: slide-up 0.5s ease-in forwards;
+}
+
+@keyframes slide-down {
+0% {
+    opacity: 0;
+    transform: translateY(-20%);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@keyframes slide-up {
+0% {
+    opacity: 1;
+    transform: translateY(0);
+}
+100% {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+}
+</style>
