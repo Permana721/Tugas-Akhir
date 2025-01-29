@@ -37,11 +37,11 @@
                 </div>
         
                 <div class="hidden md:flex md:items-center justify-center text-center mr-16 space-x-8">
+                    <RouterLink to="/dashboard" :class="{'text-blue-600 font-semibold': $route.path === '/dashboard', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/dashboard'}" class="p-2">
+                    Dashboard
+                    </RouterLink>
                     <RouterLink to="/blog" :class="{'text-blue-600 font-semibold': $route.path === '/blog', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/blog'}" class="p-2">
                     Blog
-                    </RouterLink>
-                    <RouterLink to="/program" :class="{'text-blue-600 font-semibold': $route.path === '/program', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/program'}" class="p-2">
-                    Program
                     </RouterLink>
                     <RouterLink to="/food" :class="{'text-blue-600 font-semibold': $route.path === '/food', 'text-gray-600 hover:text-blue-600 font-medium': $route.path !== '/food'}" class="p-2">
                     Makanan
@@ -64,15 +64,18 @@
         <transition name="slide-down">
             <div
                 v-if="menuOpen"
-                class="bg-blue-600 text-white fixed top-20 left-0 w-full h-1/2 z-40"
+                class="bg-blue-600 fixed text-white top-20 left-0 w-full h-80 z-40"
             >
                 <div class="flex flex-col items-center justify-center h-full space-y-4">
-                    <RouterLink to="/blog" class="text-xl font-medium">Blog</RouterLink>
-                    <RouterLink to="/diet" class="text-xl font-medium">Diet</RouterLink>
-                    <RouterLink to="/plan" class="text-xl font-medium">Rencana</RouterLink>
-                    <RouterLink to="/food" class="text-xl font-medium">Makanan</RouterLink>
-                    <RouterLink to="/recipe" class="text-xl font-medium">Resep</RouterLink>
-                    <RouterLink to="/login" class="bg-white text-blue-600 px-4 py-2 rounded-md font-bold border border-white">
+                    <RouterLink to="/dashboard" :class="{'text-black text-xl font-medium': $route.path === '/dashboard', 'text-white text-xl font-medium': $route.path !== '/dashboard'}">Dashboard</RouterLink>
+                    <RouterLink to="/blog" :class="{'text-black text-xl font-medium': $route.path === '/blog', 'text-white text-xl font-medium': $route.path !== '/blog'}">Blog</RouterLink>
+                    <RouterLink to="/food" :class="{'text-black text-xl font-medium': $route.path === '/food', 'text-white text-xl font-medium': $route.path !== '/food'}">Makanan</RouterLink>
+                    <RouterLink to="/recipe" :class="{'text-black text-xl font-medium': $route.path === '/recipe', 'text-white text-xl font-medium': $route.path !== '/recipe'}">Resep</RouterLink>
+                    <RouterLink to="/sport" :class="{'text-black text-xl font-medium': $route.path === '/sport', 'text-white text-xl font-medium': $route.path !== '/sport'}">Kebugaran</RouterLink>
+                    <RouterLink
+                        to="/login"
+                        class="bg-white text-blue-600 px-4 py-2 rounded-md font-bold border border-white"
+                    >
                         Masuk
                     </RouterLink>
                 </div>
