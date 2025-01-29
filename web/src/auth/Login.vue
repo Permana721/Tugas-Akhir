@@ -2,9 +2,9 @@
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow h-screen md:h-auto">
       <div class="flex justify-center items-center">
-          <RouterLink to="/">
-              <img src="/img/icon/logos.png" alt="Logo" class="w-56 mb-8">
-          </RouterLink>
+        <RouterLink to="/">
+          <img src="/img/icon/logos.png" alt="Logo" class="w-56 mb-8">
+        </RouterLink>
       </div>
       <form>
         <div class="mb-4">
@@ -16,14 +16,21 @@
             placeholder="Email"
           />
         </div>
-        <div class="mb-4">
+        <div class="mb-4 relative">
           <label class="block text-sm font-medium text-gray-700" for="password">Password</label>
           <input
+            :type="showPassword ? 'text' : 'password'"
             id="password"
-            type="password"
             class="w-full px-4 py-2 mt-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Password"
           />
+          <button
+            type="button"
+            @click="togglePassword"
+            class="absolute top-11 right-3 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
+          >
+            <font-awesome-icon :icon="showPassword ? 'eye-slash' : 'eye'" />
+          </button>
         </div>
         <div class="flex items-center justify-between mb-6">
           <div class="flex items-center">
@@ -62,7 +69,21 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "Login",
+  setup() {
+    const showPassword = ref(false);
+
+    const togglePassword = () => {
+      showPassword.value = !showPassword.value;
+    };
+
+    return {
+      showPassword,
+      togglePassword,
+    };
+  },
 };
 </script>
