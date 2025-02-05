@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <div class="min-h-screen pt-28 bg-gray-100 p-6">
+  <div class="min-h-screen pt-28 p-6">
     <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6">
       <div class="border-b pb-4 mb-6 flex items-center justify-between">
         <div>
@@ -191,8 +191,8 @@
 </template>
 
 <script>
-import Navbar from '../../components/Navbar.vue';
-import Footer from '../../components/Footer.vue';
+import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, PieController } from 'chart.js';
 
 export default {
