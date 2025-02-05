@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import userRoutes from './userRoute';
 import authRoutes from './authRoute';
+import adminRoutes from './adminRoute';
 
 const routes = [
     ...userRoutes,
     ...authRoutes,
+    ...adminRoutes,
 ];
 
 const router = createRouter({
