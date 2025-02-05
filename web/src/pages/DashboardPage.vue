@@ -29,7 +29,7 @@
                     Pola makan baik pangkal tubuh sehat.
                 </h1>
                 <p class="text-lg text-gray-600 mb-6">
-                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan I-CORP.
+                Ingin lebih menjaga pola makan? Catat santapan, pelajari kebiasaan, dan capai sasaran kamu dengan IP-CORP.
                 </p>
                 <RouterLink to="/login" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
                     Mulai dengan gratis
@@ -103,31 +103,37 @@
 
         <div class="py-12 px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Resep & Inspirasi</h2>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Blog Kesehatan & Gaya Hidup</h2>
                 <p class="text-gray-600 text-lg mb-8">
-                    Dapatkan resep yang disetujui ahli gizi dan kiat olahraga memotivasi dari para ahli.
+                    Temukan tips kesehatan, resep sehat, dan panduan kebugaran dari para ahli.
                 </p>
             </div>
             <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="/img/background/menu-diet.jpeg" alt="Semangkuk oatmeal dengan kranberi" class="w-full h-40 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">15 Sarapan Cepat di Bawah 300 Kalori</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
+                <RouterLink to="/blog/sarapan-sehat" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="/img/background/menu-diet.jpeg" alt="Semangkuk oatmeal dengan kranberi" class="w-full h-44 object-cover" />
+                    <div class="p-5">
+                        <span class="text-sm text-blue-600 font-medium">Nutrisi & Diet • 3 Feb 2025</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2">15 Sarapan Cepat di Bawah 300 Kalori</h3>
+                        <p class="text-gray-600 mt-2">Pilihan sarapan rendah kalori yang tetap lezat dan bergizi.</p>
+                        <span class="text-blue-600 font-medium mt-3 block hover:underline">Baca Selengkapnya →</span>
                     </div>
                 </RouterLink>
-                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="/img/background/naspad.png" alt="Pengaturan berbagai cheat meal" class="w-full h-40 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Masalah Cheat Day</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
+                <RouterLink to="/blog/cheat-day" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="/img/background/naspad.png" alt="Pengaturan berbagai cheat meal" class="w-full h-44 object-cover" />
+                    <div class="p-5">
+                        <span class="text-sm text-blue-600 font-medium">Gaya Hidup Sehat • 28 Jan 2025</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2">Masalah Cheat Day</h3>
+                        <p class="text-gray-600 mt-2">Bagaimana cheat day memengaruhi tubuh dan cara mengendalikannya.</p>
+                        <span class="text-blue-600 font-medium mt-11 block hover:underline">Baca Selengkapnya →</span>
                     </div>
                 </RouterLink>
-                <RouterLink to="/blog" class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <img src="/img/background/jogging.jpg" alt="Seorang wanita jogging di kota" class="w-full h-40 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Panduan Penting agar Tetap Bergerak</h3>
-                        <a href="#" class="text-blue-600 hover:underline">Blog IP-CORP</a>
+                <RouterLink to="/blog/tetap-bergerak" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <img src="/img/background/jogging.jpg" alt="Seorang wanita jogging di kota" class="w-full h-44 object-cover" />
+                    <div class="p-5">
+                        <span class="text-sm text-blue-600 font-medium">Olahraga & Fitness • 25 Jan 2025</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mt-2">Panduan Penting agar Tetap Bergerak</h3>
+                        <p class="text-gray-600 mt-2">Tips menjaga aktivitas fisik di tengah jadwal sibuk.</p>
+                        <span class="text-blue-600 font-medium mt-5 block hover:underline">Baca Selengkapnya →</span>
                     </div>
                 </RouterLink>
             </div>
