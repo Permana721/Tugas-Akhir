@@ -33,6 +33,15 @@
         </li>
         <li class="duration-300 hover:bg-blue-100 rounded-md">
           <router-link
+            to="/admin-pg/sport"
+            class="p-2 block rounded-md"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/sport' }"
+          >
+            Kebugaran
+          </router-link>
+        </li>
+        <li class="duration-300 hover:bg-blue-100 rounded-md">
+          <router-link
             to="/admin-pg/food"
             class="p-2 block rounded-md"
             :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/food' }"
