@@ -1,7 +1,7 @@
 import Dashboard from '../pages/dashboardPage.vue';
 import userDashboard from '../pages/user/userDashboard.vue';
-import Blog from '../pages/user/blogs/Blog.vue';
 import Sport from '../pages/user/sports/Sport.vue';
+import Blog from '../pages/user/blogs/Blog.vue';
 import Food from '../pages/user/foods/Food.vue';
 import Recipe from '../pages/user/recipes/Recipe.vue';
 import recipeDetail from '../pages/user/recipes/recipeDetail.vue';
@@ -20,7 +20,6 @@ const userRoutes = [
     
     { path: '/recipe', name: 'Recipe', component: Recipe, meta: { title: 'Recipe - IP-CORP' } },
     { path: '/recipe/detail', name: 'recipeDetail', component: recipeDetail, meta: { title: 'Recipe Detail - IP-CORP' } },
-
 ];
 
 export default userRoutes;

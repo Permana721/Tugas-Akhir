@@ -6,7 +6,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto grid gap-8 px-4 sm:px-6 lg:px-8">
-            <RouterLink to="/blog/detail" class="bg-white rounded-lg shadow-md overflow-hidden">
+            <RouterLink to="blog/detail" class="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/img/background/nasi.png" alt="Apakah Nasi Adalah Penyebab Gagal Diet?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
@@ -21,13 +21,13 @@
                         Banyak yang percaya bahwa nasi adalah penyebab utama berat badan sulit turun. Namun, apakah benar nasi harus dihindari saat diet? Pelajari faktanya di sini!
                     </p>
 
-                    <RouterLink to="/blog" class="text-blue-600 font-semibold hover:underline">
+                    <RouterLink to="blog/detail" class="text-blue-600 font-semibold hover:underline">
                         Baca Selengkapnya
                     </RouterLink>
                 </div>
             </RouterLink>
 
-            <RouterLink to="/blog" class="bg-white rounded-lg shadow-md overflow-hidden">
+            <RouterLink to="blog/detail" class="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/img/background/roti-nasi.jpg" alt="Apakah Roti Lebih Sehat Daripada Nasi?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
@@ -42,13 +42,13 @@
                     Roti dan nasi adalah makanan pokok yang sering kita konsumsi. Namun, manakah yang lebih sehat untuk mendukung pola makan Anda? Pelajari kelebihan dan kekurangan dari keduanya.
                     </p>
 
-                    <RouterLink to="/blog/bread-vs-rice" class="text-blue-600 font-semibold hover:underline">
+                    <RouterLink to="blog/detail" class="text-blue-600 font-semibold hover:underline">
                     Baca Selengkapnya
                     </RouterLink>
                 </div>
             </RouterLink>
 
-            <RouterLink to="/blog" class="bg-white rounded-lg shadow-md overflow-hidden">
+            <RouterLink to="blog/detail" class="bg-white rounded-lg shadow-md overflow-hidden">
                 <img src="/img/background/olahraga.jpg" alt="Jika Ingin Sehat, Apakah Wajib Olahraga?" class="w-full"/>
                 <div class="p-6">
                     <div class="text-blue-600 text-sm font-medium mb-2">
@@ -60,7 +60,7 @@
                     <p class="text-gray-600 mb-4">
                         Banyak yang berpikir bahwa olahraga adalah syarat utama untuk hidup sehat. Namun, apakah benar begitu? Temukan jawaban dan panduan untuk hidup sehat tanpa beban.
                     </p>
-                    <RouterLink to="/blog" class="text-blue-600 font-semibold hover:underline">
+                    <RouterLink to="/blog/detail" class="text-blue-600 font-semibold hover:underline">
                         Baca Selengkapnya
                     </RouterLink>
                 </div>

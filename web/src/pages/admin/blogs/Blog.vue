@@ -137,13 +137,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 12px;
-}
-</style>
