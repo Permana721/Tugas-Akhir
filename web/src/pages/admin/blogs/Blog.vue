@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <!-- Sidebar -->
     <aside
       class="inset-y-0 left-0 w-64 bg-white shadow-lg transition-transform transform md:translate-x-0 z-50
             fixed md:static"
@@ -7,11 +8,15 @@
     >
       <Sidebar />
     </aside>
+
+    <!-- Overlay untuk menutup sidebar di mobile -->
     <div
       v-if="isSidebarOpen"
       class="fixed inset-0 bg-black bg-opacity-50 md:hidden"
       @click="isSidebarOpen = false"
     ></div>
+
+    <!-- Konten utama -->
     <div class="flex-1 p-4 md:p-6">
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-xl md:text-2xl font-bold text-blue-600">Kelola Blog</h2>
@@ -23,14 +28,16 @@
           ☰
         </button>
       </div>
+
       <div class="bg-white p-4 shadow-md rounded-md overflow-x-auto">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 mb-4">
-          <button
-            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 w-full md:w-auto"
-            @click="showAddForm = true"
+          <!-- Ganti tombol dengan router-link -->
+          <router-link
+            to="/admin-pg/blog/add-blog"
+            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 w-full md:w-auto text-center"
           >
             + Tambah Blog
-          </button>
+          </router-link>
           <input
             v-model="searchQuery"
             type="text"
@@ -38,6 +45,8 @@
             class="w-full md:w-56 p-2 border rounded-md"
           />
         </div>
+
+        <!-- Tabel -->
         <table class="w-full text-left border-collapse">
           <thead>
             <tr class="bg-blue-50">
