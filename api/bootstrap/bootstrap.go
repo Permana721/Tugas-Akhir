@@ -5,6 +5,7 @@ import (
 	"api/configs/app_config"
 	"api/database"
 	"api/routes"
+	"api/migration"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -23,10 +24,16 @@ func BootstrapApp() {
 
 	// connect to database
 	database.ConnectDatabase()
+
+	// Jalankan migrasi
+	migration.MigrateDatabase() 
+
 	// init gin engine
 	app := gin.Default()
+
 	// init routes
 	routes.InitRoute(app)
+
 	// run app
     app.Run(app_config.PORT)
 }
