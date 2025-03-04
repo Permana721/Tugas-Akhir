@@ -3,7 +3,7 @@ package user_controller
 import (
 	"time"
 	"api/database"
-	"api/models"
+	"api/models/user_model"
 	"api/request"
 	"api/responses"
 	"fmt"
