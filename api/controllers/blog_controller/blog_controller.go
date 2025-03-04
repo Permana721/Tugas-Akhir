@@ -2,7 +2,7 @@ package user_controller
 
 import (
 	"api/database"
-	"api/models/blog"
+	"api/models/blog_model"
 	"api/request"
 	"api/responses"
 	"fmt"
