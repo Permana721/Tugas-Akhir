@@ -1,5 +1,12 @@
 package request
 
+type BlogRequest struct {
+	Title       string `json:"title" form:"title" binding:"required"`
+	Description string `json:"description" form:"description" binding:"required"`
+	Category    string `json:"category" form:"category" binding:"required"`
+	Content     string `json:"content" form:"content" binding:"required"`
+}
+
 type UserRequest struct {
 	Name  string `json:"name" form:"name" binding:"required"`
 	Email string `json:"email" form:"email" binding:"required"`
