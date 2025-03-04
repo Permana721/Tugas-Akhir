@@ -26,7 +26,7 @@
           <router-link
             to="/admin-pg/blog"
             class="p-2 block rounded-md"
-            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/blog' }"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path.startsWith('/admin-pg/blog')}"
           >
             Blog
           </router-link>
@@ -35,7 +35,7 @@
           <router-link
             to="/admin-pg/sport"
             class="p-2 block rounded-md"
-            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/sport' }"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path.startsWith('/admin-pg/sport')}"
           >
             Kebugaran
           </router-link>
@@ -44,7 +44,7 @@
           <router-link
             to="/admin-pg/food"
             class="p-2 block rounded-md"
-            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/food' }"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path.startsWith('/admin-pg/food')}"
           >
             Makanan
           </router-link>
@@ -53,7 +53,7 @@
           <router-link
             to="/admin-pg/recipe"
             class="p-2 block rounded-md"
-            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/recipe' }"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path.startsWith('/admin-pg/recipe')}"
           >
             Resep
           </router-link>
@@ -67,7 +67,7 @@
           <router-link
             to="/admin-pg/user"
             class="p-2 block rounded-md"
-            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path === '/admin-pg/user' }"
+            :class="{ 'bg-blue-100 text-blue-600 font-semibold': $route.path.startsWith('/admin-pg/user')}"
           >
             User
           </router-link>
