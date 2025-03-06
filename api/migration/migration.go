@@ -3,8 +3,9 @@ package migration
 import (
     "log"
     "api/database"
-    blogModel "api/models/blog"
-    userModel "api/models/user"
+    blogModel "api/models/blog_model"
+	foodModel "api/models/food_model"
+    userModel "api/models/user_model"
 )
 
 func MigrateDatabase() {
@@ -12,6 +13,7 @@ func MigrateDatabase() {
 
 	err := database.DB.AutoMigrate(
 		&blogModel.Blog{},
+		&foodModel.Food{},
 		&userModel.User{}, 
 	)
 
