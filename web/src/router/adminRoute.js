@@ -1,9 +1,12 @@
+import AddFood from '@/pages/admin/foods/addFood.vue';
 import adminDashboard from '../pages/admin/adminDashboard.vue';
 
 import adminBlog from '../pages/admin/blogs/Blog.vue';
 import addBlog from '../pages/admin/blogs/addBlog.vue';
+import editBlog from '../pages/admin/blogs/editBlog.vue';
 
 import adminFood from '../pages/admin/foods/Food.vue';
+import addFood from '../pages/admin/foods/addFood.vue';
 
 import adminRecipe from '../pages/admin/recipes/Recipe.vue';
 
@@ -16,8 +19,10 @@ const adminRoutes = [
 
     { path: '/admin-pg/blog', name: 'adminBlog', component: adminBlog, meta: { title: 'Blog - Admin IP-CORP' } },
     { path: '/admin-pg/blog/add-blog', name: 'addBlog', component: addBlog, meta: { title: 'Add Blog - Admin IP-CORP' } },
+    { path: '/admin-pg/blog/edit-blog/:id', name: 'editBlog', component: editBlog, meta: { title: 'Edit Blog - Admin IP-CORP' } },
 
     { path: '/admin-pg/food', name: 'adminFood', component: adminFood, meta: { title: 'Food - Admin IP-CORP' } },
+    { path: '/admin-pg/food/add-food', name: 'addFood', component: addFood, meta: { title: 'Add Food - Admin IP-CORP' } },
 
     { path: '/admin-pg/recipe', name: 'adminRecipe', component: adminRecipe, meta: { title: 'Recipe - Admin IP-CORP' } },
 
