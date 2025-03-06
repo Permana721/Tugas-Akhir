@@ -801,10 +801,6 @@ video {
   height: 100vh;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -815,6 +811,10 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-28 {
+  width: 7rem;
 }
 
 .w-4 {
@@ -847,18 +847,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-32 {
-  width: 8rem;
-}
-
-.w-20 {
-  width: 5rem;
-}
-
-.w-28 {
-  width: 7rem;
 }
 
 .min-w-full {
@@ -946,14 +934,6 @@ video {
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
 }
 
 .justify-center {
@@ -1082,10 +1062,6 @@ video {
   border-top-width: 1px;
 }
 
-.border-dashed {
-  border-style: dashed;
-}
-
 .border-blue-200 {
   --tw-border-opacity: 1;
   border-color: rgb(191 219 254 / var(--tw-border-opacity, 1));
@@ -1161,6 +1137,11 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
+}
+
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
@@ -1194,11 +1175,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50 {
@@ -1575,6 +1551,11 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-gray-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:bg-red-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
@@ -1583,11 +1564,6 @@ video {
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-gray-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-blue-600:hover {
@@ -1683,10 +1659,6 @@ video {
 
   .md\:mt-0 {
     margin-top: 0px;
-  }
-
-  .md\:ml-64 {
-    margin-left: 16rem;
   }
 
   .md\:block {
