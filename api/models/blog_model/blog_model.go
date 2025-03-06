@@ -10,8 +10,8 @@ type Blog struct {
     Description *string    `gorm:"type:varchar(255);not null" json:"description"`
     Category    *string    `gorm:"type:varchar(255);not null" json:"category"`
     Content     *string    `gorm:"type:text;not null" json:"content"`
-    HeaderPhoto *string    `gorm:"type:varchar(255);not null" json:"header_photo"`
-    Photo       *string    `gorm:"type:varchar(255)" json:"photo"`
+    Author      *string    `gorm:"type:varchar(255);not null" json:"author"`
+    Image       *string    `gorm:"type:varchar(255);not null" json:"image"`
     CreatedAt   time.Time  `json:"created_at"`
     UpdatedAt   time.Time  `json:"updated_at"`
 }
