@@ -1,9 +1,8 @@
-package user_controller
+package blog_controller
 
 import (
 	"api/database"
-	"api/models/blog_model"
-	"api/request"
+	models "api/models/blog_model"
 	"api/responses"
 	"fmt"
 	"net/http"
@@ -13,25 +12,15 @@ import (
 )
 
 func GetAllBlog(ctx *gin.Context) {
-	// Mendeklarasikan variabel blog yang akan menampung data user
 	blogs := new([]models.Blog)
-
-	// Menarik data dari tabel blog di database
 	err := database.DB.Table("blogs").Find(&blogs).Error
-
-	// Jika terjadi error dalam menarik data dari database
 	if err != nil {
-		// Mengembalikan respons error jika gagal mengambil data
 		ctx.AbortWithStatusJSON(500, gin.H{
 			"message": "Internal server error",
 		})
 		return
 	}
-
-	// Mengembalikan data siswa dalam bentuk JSON dengan status 200
-	ctx.JSON(200, gin.H{
-		"data": blogs, // Mengembalikan data siswa yang berhasil diambil
-	})
+	ctx.JSON(200, blogs)
 }
 
 func GetById(ctx *gin.Context) {
@@ -53,34 +42,26 @@ func GetById(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(200, gin.H{
-		"message" : "data transmitted",
-		"data": blog,
-	})
+	ctx.JSON(200, blog)
 }
 
-
 func Store(ctx *gin.Context) {
-	blogReq := request.BlogRequest{
-		Title:       ctx.PostForm("title"),
-		Description: ctx.PostForm("description"),
-		Category:    ctx.PostForm("category"),
-		Content:     ctx.PostForm("content"),
-	}
+	title :=       ctx.PostForm("title")
+	description := ctx.PostForm("description")
+	category :=    ctx.PostForm("category")
+	content :=     ctx.PostForm("content")
 
-	// Cek apakah title sudah digunakan
 	var existingBlog models.Blog
-	if err := database.DB.Where("title = ?", blogReq.Title).First(&existingBlog).Error; err == nil {
+	if err := database.DB.Where("title = ?", title).First(&existingBlog).Error; err == nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Title already used."})
 		return
 	}
 
-	// Menangani file header_photo
 	var filename string
-	file, err := ctx.FormFile("header_photo")
-	if err == nil { // Jika file ada
+	file, err := ctx.FormFile("image")
+	if err == nil { 
 		ext := filepath.Ext(file.Filename)
-		filename = fmt.Sprintf("%s%s", blogReq.Title, ext)
+		filename = fmt.Sprintf("%s%s", title, ext)
 		savePath := fmt.Sprintf("../web/public/uploads/%s", filename)
 
 		if err := ctx.SaveUploadedFile(file, savePath); err != nil {
@@ -91,13 +72,12 @@ func Store(ctx *gin.Context) {
 		filename = ""
 	}
 
-	// Simpan ke database
 	blog := models.Blog{
-		Title:       &blogReq.Title,
-		Description: &blogReq.Description,
-		Category:    &blogReq.Category,
-		Content:     &blogReq.Content,
-		HeaderPhoto: &filename,
+		Title:       &title,
+		Description: &description,
+		Category:    &category,
+		Content:     &content,
+		Image: &filename,
 	}
 
 	if err := database.DB.Create(&blog).Error; err != nil {
@@ -105,8 +85,117 @@ func Store(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Data Successfully Created",
-		"data":    blog,
-	})
+	ctx.JSON(http.StatusOK, blog)
+}
+
+func Update(ctx *gin.Context) {
+	id := ctx.Param("id")
+	blog := new(models.Blog)
+	blogTitleExist := new(models.Blog)
+
+	title :=       ctx.PostForm("title")
+	description := ctx.PostForm("description")
+	category :=    ctx.PostForm("category")
+	content :=     ctx.PostForm("content")
+
+	if title == "" || description == "" || category == "" || content == "" {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"message": "Semua field harus diisi!",
+		})
+		return
+	}
+
+	errDb := database.DB.Table("blogs").Where("id = ?", id).Find(&blog).Error
+	if errDb != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Internal server error",
+		})
+		return
+	}
+
+	if blog.ID == nil {
+		ctx.JSON(http.StatusNotFound, gin.H{
+			"message": "Data not found",
+		})
+		return
+	}
+
+	errblogTitleExist := database.DB.Table("blogs").Where("title = ?", title).Find(&blogTitleExist).Error
+	if errblogTitleExist != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Internal server error",
+		})
+		return
+	}
+
+	if blogTitleExist.Title != nil && *blog.ID != *blogTitleExist.ID {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"message": "Title already used",
+		})
+		return
+	}
+
+	file, err := ctx.FormFile("image")
+    var filename string
+    if err == nil {
+        ext := filepath.Ext(file.Filename)
+        filename = fmt.Sprintf("%s%s", title, ext)
+
+        savePath := fmt.Sprintf("../web/public/uploads/%s", filename)
+
+        if err := ctx.SaveUploadedFile(file, savePath); err != nil {
+            ctx.JSON(http.StatusInternalServerError, gin.H{"message": "Failed to upload file."})
+            return
+        }
+    } else {
+        filename = *blog.Image
+    }
+
+	blog.Title = &title
+	blog.Description = &description
+	blog.Category = &category
+	blog.Content = &content
+	blog.Image = &filename
+
+	errUpdate := database.DB.Table("blogs").Where("id = ?", id).Updates(&blog).Error
+	if errUpdate != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Can't update data",
+		})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, blog)
+}
+
+func Delete(ctx *gin.Context) {
+    id := ctx.Param("id")
+    blog := new(models.Blog)
+
+    result := database.DB.Table("blogs").Where("id = ?", id).Find(&blog)
+    if result.Error != nil {
+        ctx.JSON(500, gin.H{
+            "message": "internal server error",
+        })
+        return
+    }
+    if result.RowsAffected == 0 {
+        ctx.JSON(404, gin.H{
+            "message": "data not found",
+        })
+        return
+    }
+
+    errDb := database.DB.Table("blogs").Where("id = ?", id).Delete(&models.Blog{}).Error
+    if errDb != nil {
+        ctx.JSON(500, gin.H{
+            "message": "internal server error",
+            "error": errDb.Error(),
+        })
+        return
+    }
+
+    ctx.JSON(200, gin.H{
+        "message": "data deleted successfully",
+    })
 }
