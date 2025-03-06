@@ -2,8 +2,8 @@ package models
 
 type User struct {
 	ID       *int    `json:"id"`
-	Name     *string `json:"name"`
-	Email    *string `json:"email"`
-	Password *string `json:"password"`
-	Age      *int    `json:"age"`
+	Name     *string `gorm:"type:varchar(255);not null" json:"name"`
+	Email    *string `gorm:"type:varchar(255);not null" json:"email"`
+	Password *string `gorm:"type:varchar(255);not null" json:"password"`
+	Age      *int    `gorm:"type:integer" json:"age"`
 }
