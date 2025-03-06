@@ -51,16 +51,18 @@
           <thead>
             <tr class="bg-blue-50">
               <th class="p-4 border-b-2">Judul</th>
+              <th class="p-4 border-b-2">Deskripsi</th>
+              <th class="p-4 border-b-2">Kategori</th>
               <th class="p-4 border-b-2 hidden md:table-cell">Penulis</th>
-              <th class="p-4 border-b-2 hidden md:table-cell">Tanggal</th>
               <th class="p-4 border-b-2">Aksi</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="blog in filteredBlogs" :key="blog.id" class="hover:bg-gray-50">
               <td class="p-4 border-b">{{ blog.title }}</td>
-              <td class="p-4 border-b hidden md:table-cell">{{ blog.author }}</td>
-              <td class="p-4 border-b hidden md:table-cell">{{ blog.date }}</td>
+              <td class="p-4 border-b">{{ blog.description }}</td>
+              <td class="p-4 border-b">{{ blog.category }}</td>
+              <td class="p-4 border-b hidden md:table-cell">{{ 'Admin' }}</td>
               <td class="p-4 border-b flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
                 <button
                   class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 w-full md:w-auto"
@@ -77,8 +79,8 @@
               </td>
             </tr>
             <tr v-if="filteredBlogs.length === 0">
-              <td colspan="4" class="text-center p-4 text-gray-500">
-                Tidak ada blog ditemukan.
+              <td colspan="3" class="text-center p-4 text-gray-500">
+                {{ isLoading ? "Memuat data..." : "Tidak ada blog ditemukan." }}
               </td>
             </tr>
           </tbody>
@@ -89,6 +91,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Sidebar from "../components/Sidebar.vue";
 
 export default {
@@ -98,18 +101,9 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      showAddForm: false,
       searchQuery: "",
-      newBlog: {
-        title: "",
-        author: "Admin",
-        date: new Date().toISOString().substr(0, 10),
-      },
-      blogs: [
-        { id: 1, title: "Manfaat Makan Sehat", author: "Admin", date: "2025-02-03" },
-        { id: 2, title: "Tips Diet Seimbang", author: "Admin", date: "2025-02-01" },
-        { id: 3, title: "Olahraga yang Baik", author: "Admin", date: "2025-01-29" },
-      ],
+      blogs: [],
+      isLoading: false, 
     };
   },
   computed: {
@@ -120,29 +114,38 @@ export default {
     },
   },
   methods: {
-    addBlog() {
-      if (!this.newBlog.title || !this.newBlog.date) {
-        alert("Judul dan tanggal harus diisi!");
-        return;
+    async fetchBlogs() {
+      this.isLoading = true;
+      try {
+        const response = await axios.get("http://localhost:8000/blog");
+        this.blogs = response.data;
+      } catch (error) {
+        console.error("Gagal mengambil data blog:", error);
+        alert("Gagal memuat data blog. Cek koneksi API.");
+      } finally {
+        this.isLoading = false;
       }
-      this.blogs.push({
-        id: this.blogs.length + 1,
-        title: this.newBlog.title,
-        author: this.newBlog.author,
-        date: this.newBlog.date,
-      });
-      this.newBlog.title = "";
-      this.newBlog.date = new Date().toISOString().substr(0, 10);
-      this.showAddForm = false;
     },
     editBlog(blog) {
-      alert(`Edit blog: ${blog.title}`);
+      this.$router.push({
+        path: `/admin-pg/blog/edit-blog/${blog.id}`,
+        state: { blog }, 
+      });
     },
-    deleteBlog(id) {
-      if (confirm("Apakah Anda yakin ingin menghapus blog ini?")) {
+    async deleteBlog(id) {
+      if (!confirm("Apakah Anda yakin ingin menghapus blog ini?")) return;
+      try {
+        await axios.delete(`http://localhost:8000/blog/delete/${id}`);
         this.blogs = this.blogs.filter((blog) => blog.id !== id);
+        alert("Blog berhasil dihapus.");
+      } catch (error) {
+        console.error("Gagal menghapus blog:", error);
+        alert("Gagal menghapus blog. Cek koneksi API.");
       }
     },
+  },
+  mounted() {
+    this.fetchBlogs();
   },
 };
 </script>
