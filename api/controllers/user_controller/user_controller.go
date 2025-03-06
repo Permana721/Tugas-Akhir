@@ -1,42 +1,32 @@
 package user_controller
 
 import (
-	"time"
 	"api/database"
-	"api/models/user_model"
-	"api/request"
+	models "api/models/user_model"
 	"api/responses"
 	"fmt"
 	"net/http"
 	"os"
-	"golang.org/x/crypto/bcrypt"
+	"strconv"
+	"time"
+
 	"github.com/golang-jwt/jwt/v4"
-	// "gorm.io/gorm"
+	"golang.org/x/crypto/bcrypt"
 
 
 	"github.com/gin-gonic/gin"
 )
 
 func GetAllUser(ctx *gin.Context) {
-	// Mendeklarasikan variabel users yang akan menampung data user
 	users := new([]models.User)
-
-	// Menarik data dari tabel users di database
 	err := database.DB.Table("users").Find(&users).Error
-
-	// Jika terjadi error dalam menarik data dari database
 	if err != nil {
-		// Mengembalikan respons error jika gagal mengambil data
 		ctx.AbortWithStatusJSON(500, gin.H{
 			"message": "Internal server error",
 		})
 		return
 	}
-
-	// Mengembalikan data siswa dalam bentuk JSON dengan status 200
-	ctx.JSON(200, gin.H{
-		"data": users, // Mengembalikan data siswa yang berhasil diambil
-	})
+	ctx.JSON(200, users)
 }
 
 
@@ -59,76 +49,95 @@ func GetById(ctx *gin.Context) {
 		return
 	}
 
-	ctx.JSON(200, gin.H{
-		"message" : "data transmitted",
-		"data": user,
-	})
+	ctx.JSON(200, user)
 }
 
 func Store(ctx *gin.Context) {
-	userReq := new(request.UserRequest)
+    name := ctx.PostForm("name")
+    email := ctx.PostForm("email")
+    password := ctx.PostForm("password")
+    ageStr := ctx.PostForm("age")
 
-	if errReq := ctx.ShouldBind(&userReq); errReq != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": errReq.Error(),
-		})
-		return
-	}
+    if name == "" || email == "" || password == "" {
+        ctx.JSON(http.StatusBadRequest, gin.H{
+            "message": "Semua field harus diisi!",
+        })
+        return
+    }
 
-	userEmailExist := new(models.User)
-	database.DB.Table("users").Where("email = ?", userReq.Email).First(&userEmailExist)
+    age, err := strconv.Atoi(ageStr)
+    if err != nil {
+        ctx.JSON(http.StatusBadRequest, gin.H{
+            "message": "Age harus berupa angka!",
+        })
+        return
+    }
 
-	if userEmailExist.Email != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": "Email already used.",
-		})
-		return
-	}
+    userEmailExist := new(models.User)
+    database.DB.Table("users").Where("email = ?", email).First(&userEmailExist)
 
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userReq.Password), bcrypt.DefaultCost)
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{
-			"message": "Failed to hash password.",
-		})
-		return
-	}
+    if userEmailExist.Email != nil {
+        ctx.JSON(http.StatusBadRequest, gin.H{
+            "message": "Email already used.",
+        })
+        return
+    }
 
-	users := new(models.User)
-	users.Name = &userReq.Name
-	users.Email = &userReq.Email
-	hashedPasswordStr := string(hashedPassword)
-	users.Password = &hashedPasswordStr
-	users.Age = &userReq.Age
+    hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+    if err != nil {
+        ctx.JSON(http.StatusInternalServerError, gin.H{
+            "message": "Failed to hash password.",
+        })
+        return
+    }
 
-	errDb := database.DB.Table("users").Create(&users).Error
-	if errDb != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{
-			"message": "Can't create data.",
-		})
-		return
-	}
+    hashedPasswordStr := string(hashedPassword)
+    user := models.User{
+        Name:     &name,
+        Email:    &email,
+        Password: &hashedPasswordStr,
+        Age:      &age,
+    }
 
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "Data Successfully Created",
-		"data": users,
-	})
+    errDb := database.DB.Table("users").Create(&user).Error
+    if errDb != nil {
+        ctx.JSON(http.StatusInternalServerError, gin.H{
+            "message": "Can't create data.",
+        })
+        return
+    }
+
+    ctx.JSON(http.StatusOK, gin.H{
+        "message": "Data Successfully Created",
+        "data":    user,
+    })
 }
 
 func Update(ctx *gin.Context) {
 	id := ctx.Param("id")
 	user := new(models.User)
-	userReq := new(request.UserRequest)
 	userEmailExist := new(models.User)
 
-	// Bind data dari request ke struct
-	if errReq := ctx.ShouldBind(&userReq); errReq != nil {
+	name := ctx.PostForm("name")
+	email := ctx.PostForm("email")
+	password := ctx.PostForm("password")
+	ageStr := ctx.PostForm("age")
+
+	if name == "" || email == "" || password == "" || ageStr == "" {
 		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": errReq.Error(),
+			"message": "Semua field harus diisi!",
 		})
 		return
 	}
 
-	// Cek apakah data user dengan ID yang diberikan ada
+	age, err := strconv.Atoi(ageStr)
+    if err != nil {
+        ctx.JSON(http.StatusBadRequest, gin.H{
+            "message": "Age harus berupa angka!",
+        })
+        return
+    }
+
 	errDb := database.DB.Table("users").Where("id = ?", id).Find(&user).Error
 	if errDb != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
@@ -144,8 +153,7 @@ func Update(ctx *gin.Context) {
 		return
 	}
 
-	// Cek apakah email sudah digunakan oleh user lain
-	erruserEmailExist := database.DB.Table("users").Where("email = ?", userReq.Email).Find(&userEmailExist).Error
+	erruserEmailExist := database.DB.Table("users").Where("email = ?", email).Find(&userEmailExist).Error
 	if erruserEmailExist != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Internal server error",
@@ -160,9 +168,8 @@ func Update(ctx *gin.Context) {
 		return
 	}
 
-	// Jika password diisi, hash password baru
-	if userReq.Password != "" {
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userReq.Password), bcrypt.DefaultCost)
+	if password != "" {
+		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 		if err != nil {
 			ctx.JSON(http.StatusInternalServerError, gin.H{
 				"message": "Failed to hash password",
@@ -173,10 +180,9 @@ func Update(ctx *gin.Context) {
 		user.Password = &hashedPasswordStr
 	}
 
-	// Update data user
-	user.Name = &userReq.Name
-	user.Email = &userReq.Email
-	user.Age = &userReq.Age
+	user.Name = &name
+	user.Email = &email
+	user.Age = &age
 
 	errUpdate := database.DB.Table("users").Where("id = ?", id).Updates(&user).Error
 	if errUpdate != nil {
@@ -191,7 +197,6 @@ func Update(ctx *gin.Context) {
 		"data":    user,
 	})
 }
-
 
 func Delete(ctx *gin.Context) {
     id := ctx.Param("id")
@@ -231,17 +236,18 @@ type LoginRequest struct {
 }
 
 func Login(ctx *gin.Context) {
-	loginReq := new(request.LoginRequest)
+	email := ctx.PostForm("email")
+	password := ctx.PostForm("password")
 
-	if err := ctx.ShouldBindJSON(&loginReq); err != nil {
+	if email == "" || password == "" {
 		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": "Invalid request data",
+			"message": "Semua field harus diisi!",
 		})
 		return
 	}
 
 	user := new(models.User)
-	err := database.DB.Table("users").Where("email = ?", loginReq.Email).First(&user).Error
+	err := database.DB.Table("users").Where("email = ?", email).First(&user).Error
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{
 			"message": "Invalid email or password",
@@ -249,7 +255,7 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	err = bcrypt.CompareHashAndPassword([]byte(*user.Password), []byte(loginReq.Password))
+	err = bcrypt.CompareHashAndPassword([]byte(*user.Password), []byte(password))
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{
 			"message": "Invalid email or password",
@@ -257,7 +263,6 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	// Buat token JWT
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"email": user.Email,
 		"exp":   time.Now().Add(24 * time.Hour).Unix(),
@@ -271,7 +276,6 @@ func Login(ctx *gin.Context) {
 		return
 	}
 
-	// Kirim respon dengan token
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "Login successful",
 		"token":   tokenString,
@@ -279,7 +283,6 @@ func Login(ctx *gin.Context) {
 }
 
 func HandleUploadFile(ctx *gin.Context) {
-    // Ambil file dari request
     fileHeader, err := ctx.FormFile("file")
     if err != nil {
         ctx.AbortWithStatusJSON(400, gin.H{
@@ -288,10 +291,8 @@ func HandleUploadFile(ctx *gin.Context) {
         return
     }
 
-    // Pastikan direktori penyimpanan ada
     os.MkdirAll("./public/files", os.ModePerm)
 
-    // Simpan file ke direktori public/files
     savePath := fmt.Sprintf("./public/files/%s", fileHeader.Filename)
     errUpload := ctx.SaveUploadedFile(fileHeader, savePath)
     if errUpload != nil {
@@ -301,7 +302,6 @@ func HandleUploadFile(ctx *gin.Context) {
         return
     }
 
-    // Kirimkan respons sukses
     ctx.JSON(200, gin.H{
         "message": "file uploaded",
         "path":    savePath,
