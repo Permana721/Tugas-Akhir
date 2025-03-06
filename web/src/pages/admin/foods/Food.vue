@@ -25,12 +25,13 @@
       </div>
       <div class="bg-white p-4 shadow-md rounded-md overflow-x-auto">
         <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0 mb-4">
-          <button
+          <router-link
             class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 w-full md:w-auto"
             @click="showAddForm = true"
+            to="/admin-pg/food/add-food"
           >
             + Tambah Makanan
-          </button>
+          </router-link>
           <input
             v-model="searchQuery"
             type="text"
