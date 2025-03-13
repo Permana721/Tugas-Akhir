@@ -6,6 +6,7 @@ import (
     blogModel "api/models/blog_model"
 	foodModel "api/models/food_model"
     userModel "api/models/user_model"
+	sportModel "api/models/sport_model"
 )
 
 func MigrateDatabase() {
@@ -15,6 +16,7 @@ func MigrateDatabase() {
 		&blogModel.Blog{},
 		&foodModel.Food{},
 		&userModel.User{}, 
+		&sportModel.Sport{},
 	)
 
 	if err != nil {
