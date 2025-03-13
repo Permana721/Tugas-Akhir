@@ -1,5 +1,9 @@
 package responses
 
+import (
+    "time"
+)
+
 type BlogResponse struct {
 	ID          *uint      `json:"id"`
 	Title       *string    `json:"title"`
@@ -25,6 +29,7 @@ type FoodResponse struct {
 	Category    		*string 	`json:"category"`
 	Cholesterol 		*float64 	`json:"cholesterol"`
 	Fat 				*float64 	`json:"fat"`
+	Fiber 				*float64 	`json:"fiber"`
 	Image 				*string 	`json:"image"`
 	MonounsaturatedFat 	*float64 	`json:"monounsaturated_fat"`
 	PolyunsaturatedFat 	*float64 	`json:"polyunsaturated_fat"`
@@ -35,4 +40,18 @@ type FoodResponse struct {
 	Sodium 				*float64 	`json:"sodium"`
 	Sugar 				*float64 	`json:"sugar"`
 	Unit 				*string 	`json:"unit"`
+}
+
+type SportResponse struct {
+	ID          		*uint      `json:"id"`
+    Name       			*string    `json:"name"`
+    Intensity 			*string    `json:"intensity"`
+    CalorieBurn    		*float64   `json:"calorie_burn"`
+    AvarageDuration   	*int   	   `son:"avarage_duration"`
+    TargetMuscle      	*string    `json:"target_muscle"`
+    SuitableLevel       *string    `json:"suitable_level"`
+    Description       	*string    `json:"description"`
+    SportType       	*string    `json:"sport_type"`
+    CreatedAt   		time.Time  `json:"created_at"`
+    UpdatedAt   		time.Time  `json:"updated_at"`
 }
