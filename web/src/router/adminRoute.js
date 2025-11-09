@@ -1,5 +1,5 @@
 import AddFood from '@/pages/admin/foods/addFood.vue';
-import adminDashboard from '../pages/admin/adminDashboard.vue';
+import adminDashboard from '../pages/admin/AdminDashboard.vue';
 
 import adminBlog from '../pages/admin/blogs/Blog.vue';
 import addBlog from '../pages/admin/blogs/addBlog.vue';

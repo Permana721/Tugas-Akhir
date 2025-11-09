@@ -1,5 +1,5 @@
-import Dashboard from '../pages/dashboardPage.vue';
-import userDashboard from '../pages/user/userDashboard.vue';
+import Dashboard from '../pages/DashboardPage.vue';
+import userDashboard from '../pages/user/UserDashboard.vue';
 import Sport from '../pages/user/sports/Sport.vue';
 import Blog from '../pages/user/blogs/Blog.vue';
 import Food from '../pages/user/foods/Food.vue';

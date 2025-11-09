@@ -8,8 +8,8 @@ var DB_DRIVER = "mysql"
 var DB_HOST = "127.0.0.1"
 var DB_PORT = "3306"
 var DB_NAME = "fufufafa_db"
-var DB_USER = "root"
-var DB_PASSWORD = ""
+var DB_USER = "fufufafa"
+var DB_PASSWORD = "root"
 
 func InitDatabaseConfig() {
 	driverEnv := os.Getenv("DB_DRIVER")
